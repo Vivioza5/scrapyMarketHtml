@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="../style.css">
+    <title>Найденные товары </title>
+
+  </head>
+  <body>
+<div  class="container">
+          <nav  aria-label="...">
+          <ul class="pagination flex-fill disabled">
+
+          </ul>
+        </nav>
+</div>
+    <div id = "item" class="container">
+      <h1 class="mt-2 mb-4">Найденные товары {{ count_items }}</h1>
+
+      {% for item in items %}
+
+        <div class="card mb-3" style="max-width: 800px;">
+
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              {% if item.imgs %}
+                <img src="{{ item.imgs }}" class="card-img" alt="Товар">
+              {% endif %}
+            </div>
+            <div class="col-md-8">
+              <div   class="card-body">
+<!--                <a href="javascript:void(0)" class="card-body"></a>-->
+                <h5 class="card-title">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      {{ item.title }}
+                    </div>
+                    <div class="col-sm-4 text-right">
+                      {% if item.price %}
+                        <span class="text-nowrap">{{ item.price | format_price }} €</span>
+                      {% endif %}
+                    </div>
+                  </div>
+                </h5>
+                <p class="card-text">
+                  <a href="{{ item.href }}">Подробнее</a>
+                </p>
+                <!-- FIXME -->
+                <p class="card-text"><small class="text-muted">{{ item.descr }}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+
+    <!-- Optional JavaScript -->
+          <style ></style>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script  src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="pagination.js"></script>
+  </body>
+</html>
