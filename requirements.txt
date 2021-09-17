@@ -13,7 +13,6 @@ py==1.10.0
 pyparsing==2.4.7
 PyPOM==2.2.0
 pytest==5.1.1
-pytest-splinter==3.3.1
 requests==2.26.0
 selenium==3.141.0
 six==1.16.0
